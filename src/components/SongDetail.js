@@ -1,13 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { statement } from '@babel/template';
 
-const SongDetail = (props) => {
-    return <div>Song Detail</div>;
+const SongDetail = ({ song }) => {
+   if (!song) {
+       return <div>Select a song</div>
+   }
+
+   return (
+       <div>
+            <h3>Details for:</h3>
+                <p>Title: {song.title}</p>
+                <p>Duration: {song.duration}</p>
+        </div>
+   );
 };
 
-const mapStateToProps = () => {
-    return { song: statement.selectedSong }
+const mapStateToProps = (state) => {
+    return { song: state.selectedSong }
 };
 
 export default connect(mapStateToProps)(SongDetail);

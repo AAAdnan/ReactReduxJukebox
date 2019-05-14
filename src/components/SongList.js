@@ -28,12 +28,11 @@ class SongExample extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         return <div className="ui divided list">{this.renderList()}</div>
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return { songs: state.songs };
 };
 
